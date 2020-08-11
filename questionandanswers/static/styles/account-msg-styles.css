@@ -1,26 +1,26 @@
 p {
-    font: 5em 'Anton', sans-serif;
+  font: 5em "Anton", sans-serif;
 }
 
 .return-link {
-    max-width: 10vw;
-    font: 2em 'Anton', sans-serif;
-    width: fit-content;
-    border-radius: 20px;
-    text-decoration: none;
-    border: none;
-    background-color: var(--main-accent-color);
-    color: var(--main-black-color);
-    padding: 0.8vh 1.2vw;
+  max-width: 10vw;
+  font: 2em "Anton", sans-serif;
+  width: fit-content;
+  border-radius: 20px;
+  text-decoration: none;
+  border: none;
+  background-color: var(--main-accent-color);
+  color: var(--main-black-color);
+  padding: 0.8vh 1.2vw;
 }
 
 .return-link:hover {
-    background-color: var(--main-black-color);
-    color: white;
+  background-color: var(--main-black-color);
+  color: white;
 }
 
 .info-msg {
-    font: 3em 'Anton', sans-serif;
-    width: 60%;
-    margin: 0 auto;
+  font: 3em "Anton", sans-serif;
+  width: 60%;
+  margin: 0 auto;
 }

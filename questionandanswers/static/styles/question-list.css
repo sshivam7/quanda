@@ -1,141 +1,141 @@
 body {
-    display: block;
-    margin: auto;
-    background: white;
-    overflow-x: hidden;
+  display: block;
+  margin: auto;
+  background: white;
+  overflow-x: hidden;
 }
 
 h1 {
-    font: 5em 'Anton', sans-serif;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+  font: 5em "Anton", sans-serif;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
-.search-field{
-    width: 70%;
-    height: 25px;
-    border-radius: 20px;
-    border: 2px solid var(--main-black-color);
-    font: 1.2em 'Roboto', sans-serif;
-    text-indent: 4px;
+.search-field {
+  width: 70%;
+  height: 25px;
+  border-radius: 20px;
+  border: 2px solid var(--main-black-color);
+  font: 1.2em "Roboto", sans-serif;
+  text-indent: 4px;
 }
 
 .search-button {
-    border-radius: 20px;
-    border: 2px solid var(--main-black-color);
-    background-color: var(--main-black-color);
-    font: 1.2em 'Roboto', sans-serif;
-    color: white;
-    height: 27px;
+  border-radius: 20px;
+  border: 2px solid var(--main-black-color);
+  background-color: var(--main-black-color);
+  font: 1.2em "Roboto", sans-serif;
+  color: white;
+  height: 27px;
 }
 
 .new-question-link {
-    width: 80vw;
-    background-color: var(--main-black-color);
-    text-align: center;
+  width: 80vw;
+  background-color: var(--main-black-color);
+  text-align: center;
 }
 
 .new-question-link a {
-    display: inline-block;
-    width: 80vw;
-    text-decoration: none;
-    font: 3em 'Staatliches', sans-serif;
-    color: white;
+  display: inline-block;
+  width: 80vw;
+  text-decoration: none;
+  font: 3em "Staatliches", sans-serif;
+  color: white;
 }
 
 .question {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .question-summary {
-    box-shadow: 5px 10px 18px var(--main-black-color);
-    background-color: var(--grey-accent-color);
-    display: flex;
-    border-radius: 10px;
-    width: 80vw;
-    margin-bottom: 2vh;
+  box-shadow: 5px 10px 18px var(--main-black-color);
+  background-color: var(--grey-accent-color);
+  display: flex;
+  border-radius: 10px;
+  width: 80vw;
+  margin-bottom: 2vh;
 }
 
 .question-list {
-    list-style: none;
-    text-align: left;
-    padding-left: 10vw;
+  list-style: none;
+  text-align: left;
+  padding-left: 10vw;
 }
 
-.question-list li p{
-    padding: 2vh;
-    color: var(--main-black-color);
-    text-decoration: none;
-    font:  2.25em 'Staatliches', sans-serif;
-    letter-spacing: 0.5px;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+.question-list li p {
+  padding: 2vh;
+  color: var(--main-black-color);
+  text-decoration: none;
+  font: 2.25em "Staatliches", sans-serif;
+  letter-spacing: 0.5px;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .quanda-points {
-    font-size: 1em;
-    padding-right: 2vw;
-    color: var(--main-accent-color)
+  font-size: 1em;
+  padding-right: 2vw;
+  color: var(--main-accent-color);
 }
 
 .question-list .question-info {
-    color: var(--main-accent-color);
-    margin: auto;
-    text-align: center;
-    margin-right: 2vw;
-    font: bold 1.4em 'Roboto', sans-serif;
+  color: var(--main-accent-color);
+  margin: auto;
+  text-align: center;
+  margin-right: 2vw;
+  font: bold 1.4em "Roboto", sans-serif;
 }
 
 .question-info span {
-    color: var(--main-black-color);
-    font-size: 1em;
-    display: block;
+  color: var(--main-black-color);
+  font-size: 1em;
+  display: block;
 }
 
 .dot {
-    display: none;
+  display: none;
 }
 
 @media screen and (min-width: 1100px) {
-    body {
-        display: flex;
-    }
+  body {
+    display: flex;
+  }
 
-    .question-list {
-        padding-left: 4vw;
-        padding-right: 4vw;
-    }
+  .question-list {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
 
-    .search-field {
-        width: 25%;
-    }
+  .search-field {
+    width: 25%;
+  }
 }
 
 @media screen and (min-width: 600px) {
-    html {
-        height: 100%;
-    }
+  html {
+    height: 100%;
+  }
 
-    body {
-        background: url(/static/images/red-background.svg) repeat-y top left / cover, 
-        url(/static/images/base-background.svg) no-repeat top left / cover;
-    }
+  body {
+    background: url(/static/images/red-background.svg) repeat-y top left / cover,
+      url(/static/images/base-background.svg) no-repeat top left / cover;
+  }
 
-    .dot {
-        display: block;
-        height: 12px;
-        width: 12px;
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-right: 2vw;
-        border-radius: 50%;
-      }
-    
-    .u {
-        background-color: var(--main-accent-color);
-    }
-    
-    .r {
-        background-color: green;
-    }
+  .dot {
+    display: block;
+    height: 12px;
+    width: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 2vw;
+    border-radius: 50%;
+  }
+
+  .u {
+    background-color: var(--main-accent-color);
+  }
+
+  .r {
+    background-color: green;
+  }
 }

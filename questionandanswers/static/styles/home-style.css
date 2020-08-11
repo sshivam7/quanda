@@ -1,51 +1,50 @@
 body {
-    background: url(/static/images/home-background.svg) no-repeat top left / cover;
+  background: url(/static/images/home-background.svg) no-repeat top left / cover;
 }
 
 h1 {
-    font: 8em 'Anton', sans-serif;
-    margin-bottom: 0px;
-    margin-top: 0px;
+  font: 8em "Anton", sans-serif;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 h2 {
-    font: 5em 'Anton', sans-serif;
-    margin-top: 0px;
-    color: var(--main-black-color);
-    padding-right: 2px;
-    display: inline-block;
+  font: 5em "Anton", sans-serif;
+  margin-top: 0px;
+  color: var(--main-black-color);
+  padding-right: 2px;
+  display: inline-block;
 }
 
 /* Blinking cursor animation */
 @keyframes cursor-blink {
-    50% {
-      border-color: transparent;
-    }
+  50% {
+    border-color: transparent;
+  }
 }
 
 .word-span {
-    font-size: 1em;
-    animation: cursor-blink 1s steps(1) infinite;
-    border-right: 3px solid var(--main-black-color);
-    border-left: none;
-    padding-right: 0.2vw;
+  font-size: 1em;
+  animation: cursor-blink 1s steps(1) infinite;
+  border-right: 3px solid var(--main-black-color);
+  border-left: none;
+  padding-right: 0.2vw;
 }
 
 .highlight-text {
-    background-color: var(--main-accent-color);
-    color: white;
-    border-left: 3px solid var(--main-black-color);
-    border-right: none;
+  background-color: var(--main-accent-color);
+  color: white;
+  border-left: 3px solid var(--main-black-color);
+  border-right: none;
 }
 
-
 @media screen and (min-width: 600px) {
-    h1 {
-        font-size: 20em;
-    }
+  h1 {
+    font-size: 20em;
+  }
 
-    h2 {
-        font-size: 4em;
-        color: var(--main-accent-color);
-    }
+  h2 {
+    font-size: 4em;
+    color: var(--main-accent-color);
+  }
 }

@@ -1,54 +1,54 @@
 * {
-    box-sizing: border-box;
-    font-size: 10px;
+  box-sizing: border-box;
+  font-size: 10px;
 }
 
 body {
-    background: url(/static/images/base-background.svg) no-repeat top left / cover;
-    /* Color variables to be used throughout the application*/
-    --main-accent-color: #ff4655;
-    --main-black-color: #111111;
-    --grey-accent-color: rgb(241, 241, 241);
-    --dark-grey: rgb(68, 68, 68);
+  background: url(/static/images/base-background.svg) no-repeat top left / cover;
+  /* Color variables to be used throughout the application*/
+  --main-accent-color: #ff4655;
+  --main-black-color: #111111;
+  --grey-accent-color: rgb(241, 241, 241);
+  --dark-grey: rgb(68, 68, 68);
 }
 
 main {
-    text-align: center;
+  text-align: center;
 }
 
 .nav-list {
-    list-style: none;
-    margin-top: 8vh;
-    margin-left: 0.5vw;
+  list-style: none;
+  margin-top: 8vh;
+  margin-left: 0.5vw;
 }
 
 .nav-list a {
-    text-decoration: none;
-    font: 3em 'Staatliches', sans-serif;
-    color: var(--main-black-color);
+  text-decoration: none;
+  font: 3em "Staatliches", sans-serif;
+  color: var(--main-black-color);
 }
 
-ul li:first-child a{
-    color: var(--main-accent-color);
+ul li:first-child a {
+  color: var(--main-accent-color);
 }
 
-.nav-list a:hover, .nav-list a:focus {
-    background-color: var(--main-accent-color);
-    color: white;
+.nav-list a:hover,
+.nav-list a:focus {
+  background-color: var(--main-accent-color);
+  color: white;
 }
 
 .pagination {
-    margin-bottom: 2vh;
-    margin-top: 0.5vh;
+  margin-bottom: 2vh;
+  margin-top: 0.5vh;
 }
 
 .page-current {
-    font: bold 1.5em 'Roboto', sans-serif;
-    color: var(--main-black-color);
+  font: bold 1.5em "Roboto", sans-serif;
+  color: var(--main-black-color);
 }
 
 .page-links a {
-    font: bold 1.5em 'Roboto', sans-serif;
-    color: var(--main-black-color);
+  font: bold 1.5em "Roboto", sans-serif;
+  color: var(--main-black-color);
 }
-

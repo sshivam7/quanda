@@ -1,76 +1,79 @@
 body {
-    display: block;
-    height: 50vh;
+  display: block;
+  height: 50vh;
 }
 
 main {
-    width: 100%;
+  width: 100%;
 }
 
 .login-form li {
-    list-style: none;
-    margin-top: 3vh;
-    display: flex;
-    justify-content: center;
+  list-style: none;
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
-    font: 5em 'Anton', sans-serif;
-    text-align: left;
-    background-color: var(--main-accent-color);
-    width: 95%;
-    padding: 0vw 1vw;
-    margin-left: 3vw;
+  font: 5em "Anton", sans-serif;
+  text-align: left;
+  background-color: var(--main-accent-color);
+  width: 95%;
+  padding: 0vw 1vw;
+  margin-left: 3vw;
 }
 
 .login-form {
-    margin-top: 10vh;
-    margin-right: 5vw;
+  margin-top: 10vh;
+  margin-right: 5vw;
 }
 
 label {
-    font: bold 1.5em 'Roboto', sans-serif;
-    padding-right: 0.5vw;
+  font: bold 1.5em "Roboto", sans-serif;
+  padding-right: 0.5vw;
 }
 
 input {
-    min-width: 40vw;
-    font: 1.5em 'Roboto', sans-serif;
-    border: 2px solid var(--main-black-color);
-    width: 20%;
+  min-width: 40vw;
+  font: 1.5em "Roboto", sans-serif;
+  border: 2px solid var(--main-black-color);
+  width: 20%;
 }
 
-input[type="submit"], .login-form a {
-    margin-right: 0.5vw;
-    font: bold 1.5em 'Roboto', sans-serif;
-    border-radius: 20px;
-    text-decoration: none;
-    border: none;
-    background-color: var(--main-accent-color);
-    color: var(--main-black-color);
-    padding: 0.8vh 1.2vw;
+input[type="submit"],
+.login-form a {
+  margin-right: 0.5vw;
+  font: bold 1.5em "Roboto", sans-serif;
+  border-radius: 20px;
+  text-decoration: none;
+  border: none;
+  background-color: var(--main-accent-color);
+  color: var(--main-black-color);
+  padding: 0.8vh 1.2vw;
 }
 
-input[type="submit"]:hover, .login-form a:hover {
-    background-color: var(--main-black-color);
-    color: white;
-    cursor: pointer;
+input[type="submit"]:hover,
+.login-form a:hover {
+  background-color: var(--main-black-color);
+  color: white;
+  cursor: pointer;
 }
 
 .helptext {
-    display: block;
+  display: block;
 }
 
 @media screen and (min-width: 600px) {
-    body{
-        display: flex;
-    }
+  body {
+    display: flex;
+  }
 
-    input {
-        min-width: 20vw;
-    }
+  input {
+    min-width: 20vw;
+  }
 
-    input[type="submit"], .login-form a {
-        min-width: 10vw;
-    }
+  input[type="submit"],
+  .login-form a {
+    min-width: 10vw;
+  }
 }

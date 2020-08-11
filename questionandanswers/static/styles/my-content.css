@@ -1,91 +1,88 @@
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 button[role="tab"] {
-    width: 40vw;
-    height: 40px;
-    margin: 0px;
-    border: none;
-    border-radius: 15px 15px 0px 0px;
-    cursor: pointer;
-    font: 2em 'Staatliches', sans-serif;
+  width: 40vw;
+  height: 40px;
+  margin: 0px;
+  border: none;
+  border-radius: 15px 15px 0px 0px;
+  cursor: pointer;
+  font: 2em "Staatliches", sans-serif;
 }
 
 .button-selected {
-    color: white;
-    background-color: var(--main-black-color);
-    box-shadow: 5px 10px 18px var(--main-black-color);
+  color: white;
+  background-color: var(--main-black-color);
+  box-shadow: 5px 10px 18px var(--main-black-color);
 }
 
 .answer {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .answer-summary {
-    box-shadow: 5px 10px 18px var(--main-black-color);
-    background-color: var(--grey-accent-color);
-    display: flex;
-    border-radius: 10px;
-    margin-bottom: 2vh;
+  box-shadow: 5px 10px 18px var(--main-black-color);
+  background-color: var(--grey-accent-color);
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 2vh;
 }
 
 .answer-list {
-    list-style: none;
-    text-align: left;
-    padding-left: 10vw;
+  list-style: none;
+  text-align: left;
+  padding-left: 10vw;
 }
 
-.answer-list p{
-    padding: 2vh;
-    color: var(--main-black-color);
-    text-decoration: none;
-    font:  2.25em 'Staatliches', sans-serif;
-    letter-spacing: 0.5px;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+.answer-list p {
+  padding: 2vh;
+  color: var(--main-black-color);
+  text-decoration: none;
+  font: 2.25em "Staatliches", sans-serif;
+  letter-spacing: 0.5px;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .answer-list .question-info {
-    color: var(--main-accent-color);
-    margin: auto;
-    text-align: center;
-    margin-right: 2vw;
-    font: bold 1.4em 'Roboto', sans-serif;
+  color: var(--main-accent-color);
+  margin: auto;
+  text-align: center;
+  margin-right: 2vw;
+  font: bold 1.4em "Roboto", sans-serif;
 }
 
 .answer-info span {
-    color: var(--main-black-color);
-    font-size: 1em;
-    display: block;
+  color: var(--main-black-color);
+  font-size: 1em;
+  display: block;
 }
 
 .answer-list .answer-question {
-    background-color: var(--main-black-color);
-    margin-bottom: 0;
-    width: 80vw;
-    color: white;
+  background-color: var(--main-black-color);
+  margin-bottom: 0;
+  width: 80vw;
+  color: white;
 }
 
-.question-summary{
-    width: 77vw;
+.question-summary {
+  width: 77vw;
 }
 
-.question-list li{
-    display: flex;
+.question-list li {
+  display: flex;
 }
 
-.modify a{
-    display: block;
-    margin: 1vw;
+.modify a {
+  display: block;
+  margin: 1vw;
 }
 
 @media screen and (min-width: 1100px) {
-
-    .answer-list {
-        padding-left: 4vw;
-        padding-right: 4vw;
-    }
-
+  .answer-list {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
 }
-

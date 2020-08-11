@@ -24,13 +24,13 @@ function cycleText(pCounter) {
   let typeInterval = setInterval(function () {
     wordSpan.textContent += charArr[letterCount++];
 
-    // Clear interval if all characters in the array have been printed 
+    // Clear interval if all characters in the array have been printed
     if (letterCount >= charArr.length) {
       clearInterval(typeInterval);
-      // Delete current text in span and call the cycleText function again if 
+      // Delete current text in span and call the cycleText function again if
       // there are words remaining in the rotateElements list
       if (pCounter < rotateElements.length - 1) {
-        // Add highlight class and wait 1 second before deleting the current word 
+        // Add highlight class and wait 1 second before deleting the current word
         wordSpan.classList.add("highlight-text");
         setTimeout(function () {
           wordSpan.textContent = "";

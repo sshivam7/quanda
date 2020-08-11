@@ -9,6 +9,7 @@ from questionandanswers.models import Question, Answer, Topic
 from django.contrib.auth import login, authenticate
 from questionandanswers.forms import UserEmailCreationForm
 
+
 def index(request):
     """ Load the Site Homepage """
     return render(request, 'index.html')
@@ -26,7 +27,7 @@ class SearchResults(generic.ListView):
 
 class QuestionListView(generic.ListView):
     """ List all questions """
-    model = Question 
+    model = Question
     paginate_by = 10
 
 
@@ -35,7 +36,7 @@ def question_details(request, pk):
     question = get_object_or_404(Question, pk=pk)
     answers_list = Answer.objects.filter(qid=pk)
 
-    # answers for a given question along with the question are passed to the template 
+    # answers for a given question along with the question are passed to the template
     context = {
         'question': question,
         'answer_list': answers_list,
@@ -63,7 +64,7 @@ def answer_vote_change(request, qid, pk, change):
     answer = get_object_or_404(Answer, pk=pk)
     # 0 as the change parameter results in a decrease to the quanda vote counter
     if change == 0:
-        change = -1 
+        change = -1
     answer.quanda_votes = F('quanda_votes') + change
     answer.save()
 
@@ -75,7 +76,7 @@ class TopicListView(generic.ListView):
     """ List all topics """
     model = Topic
 
- 
+
 def search_by_topic(request, topic):
     """ Load all questions "tagged" with a specific topic """
     question_list = Question.objects.filter(topic__name__contains=topic)
@@ -84,7 +85,7 @@ def search_by_topic(request, topic):
 
 
 @login_required
-def my_content(request): 
+def my_content(request):
     """ 
     Loads the my content page where users can view the questions and answers
     that they have created
@@ -138,7 +139,7 @@ class AnswerCreate(LoginRequiredMixin, CreateView):
     model = Answer
     fields = ['description']
 
-    # Redirect back to question page after an answer has been posted 
+    # Redirect back to question page after an answer has been posted
     def get_success_url(self):
         return reverse_lazy('question-detail', kwargs={'pk': self.question.qid})
 
@@ -148,7 +149,7 @@ class AnswerCreate(LoginRequiredMixin, CreateView):
         self.question = get_object_or_404(Question, pk=kwargs['qid'])
         return super().dispatch(request, *args, **kwargs)
 
-    # Set default fields for 
+    # Set default fields for
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.qid = self.question
@@ -160,13 +161,13 @@ class AnswerUpdate(LoginRequiredMixin, UpdateView):
     model = Answer
     fields = ['description']
 
-    # Get question object to 
+    # Get question object to
     def dispatch(self, request, *args, **kwargs):
         # Get question instance
         self.answer = get_object_or_404(Answer, pk=kwargs['pk'])
         self.question = self.answer.qid
         return super().dispatch(request, *args, **kwargs)
-    
+
     # Redirect back to question page after an answer has been updated
     def get_success_url(self):
         return reverse_lazy('question-detail', kwargs={'pk': self.question.qid})
