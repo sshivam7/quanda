@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quanda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;500&family=Staatliches&display=swap" rel="stylesheet">
+    <!-- Load static files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/base-style.css' %}">
+</head>
+
+<body>
+    <!-- Site navigatin options -->
+    <nav>
+        <ul class="nav-list">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'questions' %}">Questions</a></li>
+            <li><a href="{% url 'topics' %}">Topics</a></li>
+            <!-- logout and my-content are only aviable if the user has logged in -->
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'my-content' %}">{{ user.get_username }}</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+
+        <!-- Handle pagination for views that have defined it -->
+        {% block pagination %}
+            {% if is_paginated %}
+            <div class="pagination">
+                <span class="page-links">
+                    {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
+                    {% endif %}
+                    <span class="page-current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+                    {% endif %}
+                </span>
+            </div>
+            {% endif %}
+        {% endblock %}
+    </main>
+</body>
+
+</html>

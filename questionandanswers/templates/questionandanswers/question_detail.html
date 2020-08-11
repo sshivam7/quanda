@@ -1,0 +1,79 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/question-detail.css' %}">
+    <!-- Display title and quanda votes -->
+    <h1><span class="question-votes">{{ question.quanda_votes }}</span>{{ question.title }}</h1> 
+    <ul class="publication-info">
+        <!-- Show question information -->
+        <li><strong>Status: </strong>{{ question.get_status_display }}</li>
+        <li><strong>Author: </strong>{{ question.author }}</li>
+        <li><strong>Date Posted: </strong>{{ question.date_created }}</li>
+        <li><strong>Vote: </strong></li>
+
+        <!-- Vote change links -->
+        <div>
+            <a href="{% url 'question-vote-change' pk=question.qid change=1 %}"><img alt="vote up" src="{% static 'images/up-arrow.svg' %}" width="20px"></a>
+            <a href="{% url 'question-vote-change' pk=question.qid change=0 %}"><img alt="vote down" src="{% static 'images/down-arrow.svg' %}" width="20px"></a>
+        </div>
+
+        <!-- list all topics associated with the current question -->
+        {% if question.topic.all %}
+            <ul class="topic-list">
+                {% for topic in question.topic.all %}
+                <li>{{ topic.name }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </ul>
+
+    <!-- Question description -->
+    <p class="description">{{ question.description }}</p>
+    <!-- Question modification options (only visible to the user who created the question) -->
+    <div class="add-answer">
+        {% if user.is_authenticated and question.author == user %}
+            <a href="{% url 'question-delete' pk=question.qid %}">Delete</a>
+            <a href="{% url 'question-update' pk=question.qid %}">Update</a>
+            {% if question.status == 'u' %}
+                <a href="{% url 'mark-resolved' pk=question.qid %}">Mark Resolved</a>
+            {% endif %}
+        {% endif %}
+        <a href="{% url 'new-answer' qid=question.qid %}">Add Answer</a>
+    </div>
+
+    <!-- List all answers associated with the question-->
+    {% if answer_list %}
+        <ul class="answer-list">
+            {% for answer in answer_list %}
+            <li>
+                <!-- Show answer quanda votes and allow users to change them -->
+                <div class="votes"> 
+                    <a href="{% url 'answer-vote-change' qid=question.qid pk=answer.aid change=1 %}"><img alt="vote up" src="{% static 'images/up-arrow.svg' %}" width="20px"></a>
+                    <div class="answer-votes">{{ answer.quanda_votes }} </div>
+                    <a href="{% url 'answer-vote-change' qid=question.qid pk=answer.aid change=0 %}"><img alt="vote down" src="{% static 'images/down-arrow.svg' %}" width="20px"></a>
+                </div>
+                <!-- Display the answer along with relevant information -->
+                <div class="answer-container">
+                    <ul class="answer-info">
+                        <li><strong>Author: </strong>&nbsp; {{ answer.author }}</li>
+                        <li> <strong>Date Published: </strong>&nbsp; {{ answer.date_created }}</li>
+                    </ul>
+                    <p class="answer-description">{{ answer.description }}</p>
+                </div>
+            </li>
+            <!-- Show answer modification options if the current logged in user created the question -->
+            {% if user.is_authenticated and answer.author == user %}
+                <div class="answer-options">
+                    <a href="{% url 'answer-update' pk=answer.aid %}">Edit</a>
+                    <a href="{% url 'answer-delete' pk=answer.aid %}">Delete</a>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <!-- Display a message if now answers can be found -->
+        <p>No answers found</p>    
+    {% endif %}
+    
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/account-styles.css' %}">
+  <h1>Login</h1>
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  <!-- Display login form -->
+  <form class="login-form" method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+    <ul>
+        <li>{{ form.username.label_tag }} {{ form.username }}</li>
+        <li>{{ form.password.label_tag }} {{ form.password }}</li>
+        <li>
+          <!-- Options given to users -->
+          <input type="submit" value="Login">
+          <a href="{% url 'password_reset' %}">Lost password?</a>
+          <a href="{% url 'signup' %}">Create Account</a>
+          <input type="hidden" name="next" value="{{ next }}">
+        </li>
+    </ul>
+  </form>
+  
+{% endblock %}

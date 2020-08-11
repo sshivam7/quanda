@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styles/account-styles.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/new-content.css' %}">
+
+  <h1>Answer: </h1>
+
+  <!-- Load answer create form -->
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Post">
+  </form>
+{% endblock %}

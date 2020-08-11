@@ -1,0 +1,73 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/question-list.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/my-content.css' %}">
+    <!-- JavaScript code to handle switching tabs -->
+    <script src="{% static 'scripts/tab-control.js' %}" defer></script>
+    <h1>My Content</h1> 
+
+    <div class="tabs">
+        <!-- Tabs to navigate -->
+        <div role="tablist" aria-label="Tabbed Content Navigation">
+            <button class="button-selected" role="tab" aria-selected="true" aria-controls="question-panel" id="tab-1" tabindex="0">
+                Questions
+            </button>
+            <button role="tab" aria-selected="false" aria-controls="answer-panel" id="tab-2" tabindex="0">
+                Answers
+            </button>
+        </div>
+        <!-- Panels to load -->
+        <div id="question-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+            <ul class="question-list">
+            <p class="new-question-link"> <a href="{% url 'new-question' %}"> Ask a new question</a></p>
+            <!-- Load all questions the user has created -->
+            {% if question_list %}
+                {% for question in question_list %}
+                    <li>
+                        <a class="question" href="{{ question.get_absolute_url }}">
+                            <div class="question-summary">
+                                <p><span class="quanda-points">{{ question.quanda_votes }}</span> {{ question.title }}</p>
+                                <p class="question-info">{{ question.author }} <span> {{ question.date_created }} </span></p>
+                                <div class="dot {{ question.status }}" aria-label="{{ question.get_status_display }}" title="{{ question.get_status_display}}"></div>
+                            </div>
+                        </a>
+                        <!-- Question modificaton options -->
+                        <div class="modify">
+                            <a href="{% url 'question-delete' pk=question.qid %}"><img src="{% static 'images/cross.svg' %}" alt="Delete" title="Delete" width="17px"></a>  
+                            <a href="{% url 'mark-resolved' pk=question.qid %}"><img src="{% static 'images/check.svg' %}" alt="Mark Resolved" title="Mark Resolved" width="20px"></a> 
+                        </div>
+                    </li>    
+                {% endfor %}
+            {% else %}
+                <!-- Display a message if no questions are available-->
+                <p> There are no questions available</p>
+            {% endif %}
+            </ul>
+        </div>
+        <div id="answer-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
+            <!-- Load all answers and their coresponding questions -->
+            {% if answer_list %}
+            <ul class="answer-list">
+                {% for answer in answer_list %}
+                    <li>
+                        <a class="answer" href="{{ answer.qid.get_absolute_url }}">
+                            <p class="answer-question">Question: {{ answer.qid }}</p>
+                            <div class="answer-summary">
+                                <p><span class="quanda-points">{{ answer.quanda_votes }}</span> {{ answer.description }}</p>
+                                <p class="question-info">{{ answer.author }} <span> {{ answer.date_created }} </span></p>
+                            </div>
+                        </a>
+                    </li>    
+                {% endfor %}
+            </ul>
+        {% else %}
+            <!-- Display a message if no answers have been created -->
+            <p> There are no answers available</p>
+        {% endif %}
+        </div>
+    </div> 
+        
+    </div>
+{% endblock content %}

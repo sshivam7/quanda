@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/topic-list.css' %}">
+    <h1>Topics</h1> 
+
+    <!-- List all topics -->
+    <div class="topic-list">
+        <ul>
+            {% for topic in topic_list %}
+                <li><a href="{% url 'search-by-topic' topic=topic.name %}">{{ topic.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock content %}

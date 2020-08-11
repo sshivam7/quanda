@@ -1,0 +1,34 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/question-list.css' %}">
+    <h1>Questions</h1> 
+
+    <!-- Search bar uses a get request to communicate with django view -->
+    <form class="search-form" method="GET" action="{% url 'search-results' %}" >
+        <input class="search-field" aria-label="Search" type="search" name="search"> 
+        <button class="search-button" type="submit"> Search </button>
+    </form>
+
+    <!-- List all questions from question_list -->        
+    <ul class="question-list">
+        <p class="new-question-link"> <a href="{% url 'new-question' %}"> Ask a new question</a></p>
+        {% if question_list %}
+            {% for question in question_list %}
+                <li>
+                    <a class="question" href="{{ question.get_absolute_url }}">
+                        <div class="question-summary">
+                            <p><span class="quanda-points">{{ question.quanda_votes }}</span> {{ question.title }}</p>
+                            <p class="question-info">{{ question.author }} <span> {{ question.date_created }} </span></p>
+                            <div class="dot {{ question.status }}" aria-label="{{ question.get_status_display }}" title="{{ question.get_status_display}}"></div>
+                        </div>
+                    </a>
+                </li>    
+            {% endfor %}
+        {% else %}
+            <!-- Display a message if no questions are available -->
+            <p> There are no questions available</p>
+        {% endif %}
+    </ul>
+{% endblock content %}

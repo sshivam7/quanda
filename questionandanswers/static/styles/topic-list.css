@@ -1,0 +1,46 @@
+body {
+  display: block;
+  background: url(/static/images/red-background.svg) repeat-y top left / cover,
+      url(/static/images/base-background.svg) no-repeat top left / cover;
+}
+
+h1 {
+  font: 5em "Anton", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.topic-list ul {
+  display: block;
+}
+
+.topic-list li {
+  box-shadow: 5px 10px 18px var(--dark-grey);
+  background-color: white;
+  border-radius: 20px;
+  padding: 15px 30px;
+  width: 200px;
+  margin: 10px auto;
+}
+
+.topic-list ul li a {
+  text-decoration: none;
+  color: var(--main-black-color);
+  font: 2.5em "Staatliches", sans-serif;
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    display: flex;
+  }
+
+  .topic-list ul {
+    display: flex;
+  }
+
+  .topic-list li {
+    margin: 10px;
+  }
+}

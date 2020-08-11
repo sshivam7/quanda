@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styles/account-msg-styles.css' %}">
+
+  <p>Logged out!</p>  
+  <a class="return-link" href="{% url 'login'%}">Click here to login again.</a>
+{% endblock %}

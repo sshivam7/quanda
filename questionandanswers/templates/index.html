@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/home-style.css' %}">
+    <script src="{% static 'scripts/typing-text.js' %}" defer></script>
+
+    <!-- Load the title content -->
+    <h1>QUANDA</h1>
+    <h2 class="text-rotate" aria-label="A place for questions, answers, and solutions">A place for <span class="word-span"></span> </h2>
+    
+{% endblock content %}

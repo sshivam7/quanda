@@ -1,0 +1,37 @@
+form {
+    margin-left: 4vw;
+    text-align: right;
+}
+
+p {
+    text-align: left;
+}
+
+label {
+    margin: auto 0;
+}
+
+#id_title, #id_description {
+    width: 80vw;
+    display: block;
+}
+
+#id_description, #id_topic {
+    font: 1.5em 'Roboto', sans-serif;
+    border: 2px solid var(--main-black-color);
+}
+
+#id_topic {
+    display: block;
+    width: 80vw;
+}
+
+.helptext {
+    font: 1em 'Roboto', sans-serif;
+}
+
+input[type="submit"] {
+    width: 15vw;
+    margin-bottom: 2vh;
+    margin-right: 2.5vw;
+}
